@@ -11,6 +11,14 @@ node with the examples below.
 
 Examples
 
+
+***********************************************************************/
+
+function postpone(cb, delay) {
+  return function func() { // can't rename function to anything
+    setTimeout(cb, delay)
+  }
+}
 const sayHello = () => console.log('hi');
 const slowHello = postpone(sayHello, 1000);
 console.log(slowHello); // [Function]
@@ -20,12 +28,6 @@ const sayGoodbye = () => console.log('bye');
 const slowerGoodbye = postpone(sayGoodbye, 1750);
 console.log(slowerGoodbye); // [Function]
 slowerGoodbye(); // prints 'bye' after 1750 ms
-***********************************************************************/
-
-function postpone(cb, delay) {
-  // Your code here 
-}
-
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
   module.exports = postpone;
